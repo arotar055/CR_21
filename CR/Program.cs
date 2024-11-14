@@ -29,14 +29,14 @@ class Program
 
     static bool IsValidName(string input)
     {
-        string pattern = @"^[A-Za-z][A-Za-z0-9_]{2,15}@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*\.[A-Za-z]{2,3}$";
+        string pattern = @"^([А-ЯЁA-Z][а-яёa-z]+) ([А-ЯЁA-Z]\.[А-ЯЁA-Z]\.|[А-ЯЁA-Z]{2})$";
         return Regex.IsMatch(input, pattern);
     }
 
     static bool IsValidEmail(string input)
     {
-        string pattern = @"^[A-Za-z][A-Za-z0-9_]{2,15}@[A-Za-z]+\.(?:[A-Za-z]{2,3})(?:\.[A-Za-z]{2,3})?$";
-        return Regex.IsMatch(input, pattern);
+        string pattern = @"^[A-Za-z][A-Za-z0-9_]{2,15}@[A-Za-z0-9]+(\.[A-Za-z0-9]+)*\.[A-Za-z]{2,3}$";
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
     }
 
     static bool IsValidDate(string input)
